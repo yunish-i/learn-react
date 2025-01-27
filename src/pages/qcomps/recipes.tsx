@@ -30,22 +30,9 @@ export const recipes = [
 
 export default function RecipeList() {
   const recipesDisplay = recipes.map((recipe) => (
-    <RecipeDiv
-      key={recipe.id}
-      name={recipe.name}
-      ingredients={recipe.ingredients}
-    />
+    <li key={recipe.id}>
+      {recipe.name}: {Array.from(recipe.ingredients).join(", ")}
+    </li>
   ));
-  return (
-    <div>
-      <h1>Recipes</h1>
-      <ul>
-        {recipes.map((recipe) => (
-          <li key={recipe.id}>
-            {recipe.name}: {Array.from(recipe.ingredients).join(", ")}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+  return <ul>{recipesDisplay}</ul>;
 }
